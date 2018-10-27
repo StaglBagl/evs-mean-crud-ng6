@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
-import Issue from '../models/Issue';
+import Issue from './models/Issue';
 
 const app = express();  // Init App
 const router = express.Router(); // Init Router
