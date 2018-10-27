@@ -2,7 +2,21 @@
   <img class="logo" src="/assets/images/EVS_alpha.png">
   <div class="newblog"></div>
   <span class="fill-empty-space"></span>
-  <span><a style="color: white; text-decoration: none;" href="#">Link</a></span>
+  <span><a style="color: grey; text-decoration: none;" [routerLink]="['/create']">create</a></span>
+  <span style="color: grey; margin: 0px 5px; text-decoration: none;" href="#"> | </span>
+  <span><a style="color: grey; text-decoration: none;" [routerLink]="['/list']">edit</a></span>
+  <span style="color: grey; margin: 0px 5px; text-decoration: none;" href="#"> | </span>
+  <span><a style="color: grey; text-decoration: none;" [routerLink]="['/list']">list</a></span>
+  <span style="color: grey; margin: 0px 5px; text-decoration: none;" href="#"> | </span>
+  <span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Home</a></span>
+  <span style="color: grey; margin: 0px 5px; text-decoration: none;" href="#"> | </span>
+  <span><a style="color: white; text-decoration: none;" [routerLink]="['/']">About</a></span>
+  <span style="color: grey; margin: 0px 5px; text-decoration: none;" href="#"> | </span>
+  <span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Gallery</a></span>
+  <span style="color: grey; margin: 0px 5px; text-decoration: none;" href="#"> | </span>
+  <span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Contact</a></span>
+  <span style="color: grey; margin: 0px 5px; text-decoration: none;" href="#"> | </span>
+  <span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Blog</a></span>
 </mat-toolbar>
 <div>
   <router-outlet></router-outlet>
