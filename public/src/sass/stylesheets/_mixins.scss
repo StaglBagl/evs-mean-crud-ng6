@@ -1,12 +1,87 @@
-@mixin background($imgpath, $position: 0 0, $repeat: no-repeat) {
+@mixin bgimage($name, $height: false, $position: 0 0, $repeat: no-repeat) {
+	//height: 100%;
+	$url:"/../assets/images/#{$name}";
 	background: {
-		image: url($imgpath);
+		image: url($url);
 		position: $position;
 		repeat: $repeat;
 		size: cover;
+	@if $height { height: $height }
+      @else { height: auto; }
 	}
 }
 
-.newblog {
-	@include background('#{$imgdir}newblog.png');
+//Push Auto
+@mixin push--auto {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+}
+
+// Font Styles
+@mixin font-source-sans($size: false, $color: false, $weight: false,  $lh: false, $align: false) {
+    font-family: Roboto, 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    @if $size { font-size: $size; }
+    @if $color { color: $color; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+    @if $align { text-align: $align; }
+}
+
+@mixin font-source-serif($size: false, $color: false, $weight: false,  $lh: false, $align: false) {
+    font-family: Roboto Slab, 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    @if $size { font-size: $size; }
+    @if $color { color: $color; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+    @if $align { text-align: $align; }
+}
+
+//Media Queries
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+// Rounded Rectangle
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+// Rounded Rectangle Outline Thick
+
+@mixin border-radius-outline($width: false, $height: false){
+  background-color: $primary-color;
+  @include border-radius(5px);
+  border-style: solid;
+  border-width: medium;
+  border-color: white;
+  padding:10px 20px;
+  @if $width { width: $width; }
+  @if $height { height: $height; }
 }

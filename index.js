@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public/dist'));
 mongoose.connect('mongodb://localhost:27017/Issues', { useNewUrlParser: true });
 
-
+// Router
 router.route('/issues').get((req, res) => {
     Issue.find((err, issues) => {
         if (err)

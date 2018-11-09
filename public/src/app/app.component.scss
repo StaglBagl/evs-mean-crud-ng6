@@ -1,9 +1,62 @@
 @import '../sass/stylesheets/variables';
+@import '../sass/stylesheets/mixins';
+@import '../sass/materialize';
+
+.evs_navbar {
+	background-color: $primary-color;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0;
+
+}
 
 .logo {
-	width:100px;
+	width: 125px;
+	margin-left:1rem;
+	margin: 10px 25px;
+	padding-top: 5px;
+}
+
+.newblog { 
+  //@include border-radius(5px); // apply the mixin
+  @include border-radius-outline(
+  	$width: 168px,
+  	$height: 45px,
+  	);
+  @include font-source-sans(
+  	$size: 1.25em,
+  	$lh: 2rem,
+  	$color: white,
+  	$align: center
+  	);
+}
+
+.newblog:hover {
+	width: 108px;
+	background-color: white;
+	color: $primary-color;
 }
 
 .fill-empty-space {
 	flex: 1 1 auto;
 }
+
+.nav {
+	@include font-source-sans(
+  	$size: 1.5em,
+  	$weight: 100,
+  	$lh: 3.25rem,
+  	);
+	margin-right: 1rem;
+	padding-top: 15px;
+}
+
+.navdiv {
+	color: white;
+	margin: 0px 5px; 
+	text-decoration: none;
+	background-color: none;
+	font-weight: 700;
+}
+
