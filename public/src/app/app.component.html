@@ -1,26 +1,35 @@
 <div class="evs_navbar">
-	<div><a [routerLink]="['/']"><img class="logo" src="/assets/images/EVS_alpha.png"></a></div>
-	<div><a [routerLink]="['/']" class="newblog">New Blog Post</a></div>
-	<span class="fill-empty-space"></span>
+	<div>
+		<a [routerLink]="['/']"><img class="logo" src="/assets/images/EVS_alpha.png"></a>
+	</div>
+	<div class="newblogContainer" style="">
+		<a [routerLink]="['/']"><div class="newblog">New Blog Post</div></a>
+	</div>
+	<!-- <span class="fill-empty-space"></span>-->
 	<div class="nav">
-		<span><a style="color: grey; text-decoration: none;" [routerLink]="['/create']">create</a></span>
-		<span class="navdiv" style="color: grey;"> | </span>
-		<span><a style="color: grey; text-decoration: none;" [routerLink]="['/list']">edit</a></span>
-		<span class="navdiv" style="color: grey;"> | </span>
-		<span><a style="color: grey; text-decoration: none;" [routerLink]="['/list']">list</a></span>
-		<span class="navdiv" style="color: grey;"> | </span>
-		<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Home</a></span>
-		<span class="navdiv"> | </span>
-		<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">About</a></span>
-		<span class="navdiv"> | </span>
-		<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Gallery</a></span>
-		<span class="navdiv"> | </span>
-		<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Contact</a></span>
-		<span class="navdiv"> | </span>
-		<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Blog</a></span>
-	</div><!--nav-->
+		<div class="adminPanel" style="">
+			<span><a style="color: grey; text-decoration: none;" [routerLink]="['/create']">create</a></span>
+			<span class="navdiv" style="color: grey;"> | </span>
+			<span><a style="color: grey; text-decoration: none;" [routerLink]="['/list']">edit</a></span>
+			<span class="navdiv" style="color: grey;"> | </span>
+			<span><a style="color: grey; text-decoration: none;" [routerLink]="['/list']">list</a></span>
+			<!--<span class="navdiv" style="color: grey;"> | </span>-->
+		</div>
+		<div class="mainPanel" style="float: right;">
+			<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Home</a></span>
+			<span class="navdiv"> | </span>
+			<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">About</a></span>
+			<span class="navdiv"> | </span>
+			<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Gallery</a></span>
+			<span class="navdiv"> | </span>
+			<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Contact</a></span>
+			<span class="navdiv"> | </span>
+			<span><a style="color: white; text-decoration: none;" [routerLink]="['/']">Blog</a></span>
+		</div>
+	</div><!-- nav -->
 	
-</div><!-- -->
+</div><!-- /evs_navbar -->
+
 <div>
-  <router-outlet></router-outlet>
+  <router-outlet></router-outlet> <!-- Route -->
 </div>

@@ -3,54 +3,132 @@
 @import '../sass/materialize';
 
 .evs_navbar {
-	background-color: $primary-color;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
 	margin: 0;
-
+	position: static;
+	width: 100%;
+	z-index: 999;
+	background-color: $primary-color;
+	//display: inline;
+	//flex-wrap: wrap;
+	//justify-content: space-around;
+	//align-items: center;
+	height: auto;
+	padding-bottom: 60px;
+	@include mq("tablet") {
+		height: 100px;
+		position: fixed;
+		top: 0;
+	};
 }
 
 .logo {
-	width: 125px;
-	margin-left:1rem;
-	margin: 10px 25px;
-	padding-top: 5px;
+	width: 100%;
+	padding: 15px 20% 0 20%;
+	@include mq("tablet") {
+		width: 200px;
+		margin: 10px 25px;
+		padding: 5px 0 0 0;
+		float: left;
+		position: absolute;
+		left: 10px;
+	};
+}
+.newblogContainer {
+	width: 100%;
+	@include mq("tablet") {
+	  width: 25%;
+	}
 }
 
 .newblog { 
   //@include border-radius(5px); // apply the mixin
-  @include border-radius-outline(
-  	$width: 168px,
-  	$height: 45px,
+	@include font-source-sans(
+  	  $size: 1rem,
+  	  $lh: 1.5rem,
+  	  $color: white,
+  	  $align: center
   	);
-  @include font-source-sans(
-  	$size: 1.25em,
-  	$lh: 2rem,
-  	$color: white,
-  	$align: center
+	@include border-radius-outline(
+  	  $width: 50%,
+  	  $height: 45px
   	);
+  margin: 18px 25% 13px 25%;
+  width: 50%;
+	@include mq("phone") {
+	  font-size: 1.25rem;
+	}
+	@include mq("phone-wide") {
+	  font-size: 1.5rem;
+	};
+	@include mq("phablet") {
+	  font-size: 1.5rem;
+	};
+	@include mq("tablet-small") {
+	  font-size: 1.5rem;
+	};
+	@include mq("tablet") {
+	  margin: 15px 0 0 0;
+	  width: 20%;
+	  font-size: 1rem;
+	  position: absolute;
+	  left: 255px;
+	  top: 15px;
+	  right: 0px;
+	};
+	@include mq("tablet-wide") {
+	  width: 15%;
+	  position: absolute;
+	  left: 275px;
+	  top: 15px;
+	  right: 0px;
+	};
+	@include mq("desktop-wide") {
+	  width: 12%;
+	};
 }
 
-.newblog:hover {
-	width: 108px;
+.newblog:hover{
 	background-color: white;
 	color: $primary-color;
 }
 
 .fill-empty-space {
+	display: none;
 	flex: 1 1 auto;
 }
 
 .nav {
 	@include font-source-sans(
-  	$size: 1.5em,
+  	$size: 1.25rem,
   	$weight: 100,
   	$lh: 3.25rem,
   	);
-	margin-right: 1rem;
-	padding-top: 15px;
+  	@include mq("tablet-small") {
+		padding: 0;
+	};
+	@include mq("tablet") {
+		padding: 25px 15px 0 0;
+	};
 }
+
+.adminPanel {
+	width: 100%;
+	text-align: center;
+	line-height: 20px;
+	@include mq("tablet") {
+		text-align: right;
+	};
+}
+
+.mainPanel {
+	width: 100%;
+	text-align: center;
+	@include mq("tablet") {
+		text-align: right;
+	};
+}
+
+
 
 .navdiv {
 	color: white;

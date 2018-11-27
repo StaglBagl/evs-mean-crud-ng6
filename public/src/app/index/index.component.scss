@@ -5,18 +5,34 @@
 /* comment */ 
 // so is this
 
+a {
+	
+}
+
 .container {
 }
+
+/* ************** HEADER ************** */
 
 .bgimg { /* background clouds */
   @include bgimage(
   	$name: "bg_clouds.png",
-  	$position: 0 -300px,
-  	$height: 800px
+  	$position: center,
+  	$height: 450px
   	);
-  //margin-top:-49px; //kinda fucky <<<
+  width: 100%;
   padding-top: 1em;
-  padding-bottom: 2.75em;
+  padding-bottom: 100px;
+  background-color: color("blue-grey", "darken-2");
+  margin-top: 0px;
+  @include mq("tablet-small") {
+		margin-top: 0px;
+		height: 475px;
+	};
+  @include mq("tablet") {
+		margin-top: 80px;
+		height: 400px;
+	};
 }
 
 .headerTitle { /* White namesake on header */
@@ -24,27 +40,67 @@
 		$weight: 400,
 		$color: white
 		);
-	margin-top: 0.75em;
+	margin-top: 30px;
+	@include mq("tablet") {
+		margin-top: 60px;
+	};
 }
 
 .headerSubTitle { /* smaller header text "multimedia designer..." */
 	@include font-source-serif(
 		$weight: 300,
 		$color: white,
+		$size: 2em
+		);
+	padding-top: 15px;
+	@include mq("tablet-small") {
+		@include font-source-serif(
 		$size: 2.5em
 		);
-	margin-top: 0.5em;
+	};
 }
 
 .resumeContact { /* Resume and Contact buttons, soon to be animated */
-	display: flex;
-	justify-content: center;
 	margin-top: 3em;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	@include mq("tablet-small") {
+	  width: 100%;
+	}
+}
+
+.resumeContact a {
+	//padding: 0 25%;
+	width: 280px;
+	padding: 0;
+	//max-width: 280px;
+	height: auto;
+	@include mq("tablet-small") {
+	  width: 320px;
+	  padding-left: 20px;
+	}
+	@include mq("tablet") {
+	  width: 280px;
+	  margin: 0;
+	  padding: 0;
+	}
 }
 
 .spacer { /* to space buttons evenly from the center of page */
 	width: 200px;
 }
+
+.logo {
+	margin-top: 20px;
+	padding: 0;
+	@include mq("tablet-small") {
+	  padding: 0;
+	}
+}
+
+/* ************** FEATURED WORK ************** */
 
 .featureTab { /* container for Featured Work */
 	@include font-source-serif(
@@ -55,9 +111,341 @@
 	margin-top: 0.5em;
 }
 
+.featureRow {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+}
+
+.featureRow .card {
+	width: 95%;
+	@include mq("tablet-small") {
+		width: 95%;
+	};
+	@include mq("tablet") {
+		width: 45%;
+		margin: 15px;
+	};
+	@include mq("tablet-wide") {
+		width: 45%;
+		margin: 15px;
+	};
+	@include mq("desktop") {
+		width: 30%;
+		margin: 15px;
+	};
+}
+
+.galleryLink {
+	@include font-source-sans(
+		$size:2em
+		);
+	margin-bottom: 15px;
+}
+
+/* ************** TESTING ************** */
+
 .testbox { /* testing only */
   @include border-radius(5px); // apply the mixin
   background-color:olive;
   color:white;
   padding:10px;
+}
+
+/* ************** MINI ABOUT ************** */
+
+.shortAbout h1 {
+	@include font-source-serif(
+		$size: 3rem
+		);
+	margin-top: 25px;
+	margin-bottom: 30px;
+}
+
+.shortAbout {
+	background-color: $primary-color-light;
+	padding: 1px 30px 30px 30px;
+	min-height: 450px;
+	position: relative;
+	@include mq("desktop") {
+		height: 500px;
+	};
+	@include mq("desktop-wide") {
+		height: 500px;
+	};
+}
+
+.shortAbout h1 {
+	font-size: 1.5rem;
+	@include mq("phone") {
+		font-size: 2rem;
+	};
+	@include mq("phablet") {
+		font-size: 3rem;
+	};
+	@include mq("tablet") {
+		font-size: 4rem;
+	};
+	@include mq("desktop") {
+		margin-bottom: 50px;	
+	};
+}
+
+.profile {
+	float: left;
+	margin: 0 0px 30px 0;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	@include mq("phone") {
+		width: 200px;
+		height: 200px;	
+		margin-bottom: 30px;
+	};
+	@include mq("tablet") {
+		width: 300px;
+		height: 300px;	
+		margin-bottom: 30px;
+	};
+	@include mq("tablet-wide") {
+		width: 225px;
+		height: 225px;
+		margin-bottom: 40px;
+	};
+	@include mq("desktop") {
+		width: 300px;
+		height: 300px;
+	};
+}
+
+.aboutContent {
+	width: 90%;
+	margin: 0 auto;
+	//padding-left: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.aboutTab {
+	text-align: center;
+	@include mq("tablet-wide") {
+		width: 80%;
+	};
+	@include mq("desktop") {
+		width: 45%;
+		text-align: left;
+	};
+}
+
+.aboutText {
+	@include font-source-sans(
+		$color: white,
+		$weight: 100
+		);
+	width:100%;
+	min-width: 250px;
+	//margin-top: 20px;
+	//margin-bottom: 95px;
+	//height: 450px;
+}
+
+.aboutLink {
+	@include border-radius(5px); // apply the mixin
+	@include font-source-sans(
+		$size:2em
+		);
+	margin: 35px 0 0 0;
+	background-color: white;
+	max-height: 75px;
+	width: 100%;
+	//max-width: 445px;
+}
+
+/* ************** SKILLS ************** */
+
+.skillSet {
+	background-color: white;
+	min-height: 800px;
+}
+
+
+.skillSet h1{
+	@include font-source-serif(
+		$color: $primary-color-dark,
+		$size: 3rem
+		);
+	margin-top: 35px;
+	margin-bottom: 75px;
+}
+
+.skillRow {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.skillBlock {
+	width: 100%;
+	@include sm {
+		width: 100%;
+	};
+	@include md {
+		width: 40%;
+	};
+	@include lg {
+		width: 30%;
+	};
+	margin: 10px;
+}
+
+.skillBlock h1 {
+	@include font-source-sans(
+		$color: $primary-color-light,
+		$size: 2rem,
+		$align: center,
+		$lh: 2.5rem
+		);
+	margin-bottom: 10px;
+	border-bottom: solid;
+	border-bottom-width: thick;
+	border-bottom-color: color("blue-grey", "lighten-4");
+}
+
+.skillBlock h2 {
+	@include font-source-sans(
+		$color: $primary-color-dark,
+		$size: 1.25rem,
+		$align: center,
+		$lh: 1.75rem
+		);
+		min-height: 150px;
+
+}
+
+/* ************** FOOTER ************** */
+.Footer {
+	@include font-source-sans(
+		$weight: 200,
+		$size: 1rem,
+		$color: color("blue-grey", "lighten-4")
+		);
+	background-color: $primary-color-dark;
+}
+
+.subFoot1 {
+	padding: 30px 0 25px 0;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	padding-left: 26%;
+	@include mq("phone-wide") {
+		padding-left: 13%;
+	}
+	@include mq("phablet") {
+		padding-left: 10%;
+	}
+	@include mq("tablet-small") {
+		padding-left: 10%;
+	}
+	@include mq("tablet") {
+		padding-left: 0;
+	}
+	@include mq("tablet-wide") {
+		padding-left: 0%;
+	}
+}
+
+.subFoot1 ul {
+	// X display: flex;
+	// X justify-content: center;
+	width: 100%;
+	padding-left: 0;
+	margin-bottom: 30px;
+	@include mq("phone-wide") {
+		width: 50%;
+	}
+	@include mq("tablet-small") {
+		width: 50%;
+		padding: 0px;
+		margin-bottom: 30px;
+	}
+	@include mq("tablet") {
+		width: 28%;
+	}
+	@include mq("tablet-wide") {
+		width: 25%;
+	}
+}
+
+.subFootNav {
+	padding-left: 18%;
+	width:50%;
+	margin:0;
+	@include mq("phone-wide") {
+		width: 100%;
+	}
+	@include mq("tablet-wide") {
+		padding-left: 25%;
+	}
+}
+
+.subFootGallery {
+	padding-left: 7%;
+}
+
+.subFootSocial {
+	padding-left: 17%;
+	width:50%;
+	@include mq("phone-wide") {
+		width: 100%;
+	}
+}
+
+.subFootContact {
+	padding-left: 0%;
+}
+
+
+.subFootContact li.footHead{
+	padding-left: 8%;
+}
+
+.subFoot1 ul li {
+	//display: flex;
+	//justify-content: center;
+	height: 25px;
+}
+
+.subFoot1 ul li a {
+	text-decoration: none;
+	color: color("blue-grey", "lighten-4");;
+}
+
+.footHead{
+	@include font-source-sans(
+		$weight: 400,
+		$size: 1.25rem,
+		);
+	//width: 200px;
+}
+
+.material-icons {
+	position: relative;
+	top: 7px;
+	line-height: 15px;
+	margin: 0 10px 0 5px;
+}
+
+.fab {
+	margin-right: 10px;
+	line-height: 15px;
+}
+
+.subFoot2 {
+	padding: 35px 50px;
+	display: flex;
+	justify-content: center;
 }

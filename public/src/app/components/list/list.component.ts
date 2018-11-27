@@ -11,8 +11,8 @@ import { IssueService } from '../../issue.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
-  issues: Issue[];
+  
+  issues: Issue[]; //dataSource
   displayedColumns = ['title', 'resp', 'severity', 'status', 'actions'];
 
   constructor(private issueService: IssueService, private router: Router) { }
